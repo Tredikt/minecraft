@@ -1,0 +1,19 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server:java8
+    container_name: minecraft-1_12_2
+    ports:
+      - "25566:25565"
+    environment:
+      EULA: "TRUE"
+      VERSION: "1.12.2"
+      TYPE: "FORGE"
+      FORGEVERSION: "14.23.5.2860"
+      MEMORY: "4G"
+    volumes:
+      - ./data:/data
+      - ./mods:/data/mods
+      - ./config:/data/config
+      - ./scripts:/data/scripts
+    restart: unless-stopped
+
